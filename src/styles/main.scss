@@ -54,14 +54,13 @@ button {
     padding-block: 15px;
     padding-inline: 5px;
     border-bottom: 2px solid  $primary;
-     
+
     input {
       border: none;
       outline: transparent;
       font-size: 18px;
       font-style: italic;
     }
-
   }
 
   #delete-btn {
@@ -71,7 +70,7 @@ button {
     text-align: center;
     width: 100%;
     padding: 12px;
-    margin: 0
+    margin: 0;
   }
 }
 
@@ -80,18 +79,18 @@ button {
   margin-block: 0;
 
   li {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.5px solid  $primary;
+    padding-inline: 5px;
+    width: 400px;
+
+    div {
       display: flex;
       flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 0.5px solid  $primary;
-      padding-inline: 5px;
-      width: 400px;
-
-      div {
-        display: flex;
-        flex-direction: row;
-        gap: 10px
-      }
+      gap: 10px
     }
+  }
 }
