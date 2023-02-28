@@ -4,22 +4,25 @@ const savedItems = [
     {
         completed: false,
         description: 'Exercise',
-        index: 0,
+        index: 3,
     },
     {
         completed: false,
         description: 'Study',
-        index: 1,
+        index: 2,
     },
     {
         completed: false,
         description: 'Take a walk',
-        index: 2,
+        index: 1,
     }
 ];
 
 const displayItems = () => {
     let items = savedItems;
+    
+    // Sort the items by their index property
+    items.sort((a, b) => a.index - b.index);
     
     document.querySelector('.container').innerHTML = `
         <div class="title">
@@ -51,8 +54,6 @@ const displayItems = () => {
         
         listItems.appendChild(listItem);
     })
-
-
 };
 
-document.addEventListener('DOMContentLoaded', displayItems)
+document.addEventListener('DOMContentLoaded', displayItems);
