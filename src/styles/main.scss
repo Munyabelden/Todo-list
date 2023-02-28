@@ -1,6 +1,100 @@
-$primary: pink;
+@mixin flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
-body{
-  background: $primary;
-  text-align: center;
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+
+$primary: lightgray;
+$buttons: darkgray;
+
+body {
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: transparent;
+  cursor: pointer;
+
+  .fa-solid {
+    color: $buttons;
+    font-size: 18px;
+  }
+}
+
+.container {
+  margin: 30px auto;
+  box-shadow: 0 0 5px 5px $primary;
+  width: fit-content;
+
+  .title {
+    @include flex;
+    padding-block: 6px;
+    padding-inline: 5px;
+    border-block: 2px solid  $primary;
+
+    h1 {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    button {
+      color: $buttons;
+    }
+  }
+
+  .todo-form {
+    @include flex;
+    padding-block: 15px;
+    padding-inline: 5px;
+    border-bottom: 2px solid  $primary;
+     
+    input {
+      border: none;
+      outline: transparent;
+      font-size: 18px;
+      font-style: italic;
+    }
+
+  }
+
+  #delete-btn {
+    font-size: 18px;
+    color: gray;
+    background: #efefef;
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    margin: 0
+  }
+}
+
+.list-container {
+  margin-left: -40px;
+  margin-block: 0;
+
+  li {
+      @include flex;
+      border-bottom: 0.5px solid  $primary;
+      padding-inline: 5px;
+      width: 400px;
+
+      div {
+        display: flex;
+        flex-direction: row;
+        gap: 10px
+      }
+    }
 }
