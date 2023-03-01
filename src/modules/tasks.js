@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.list-btn').forEach((button) => {
       button.addEventListener('click', () => {
         const listItem = button.closest('li');
-        listItem.style.background = 'pink';
+        listItem.style.background = 'bisque';
         button.style.display = 'none';
         const removeButton = listItem.querySelector('.remove-btn');
         removeButton.style.display = 'block';
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const index = parseInt(removeButton.id);
             items = items.filter((item) => item.index !== index);
             items.forEach((item, i) => {
-              item.index = i;
+              item.index = i + 1;
             });
             localStorage.setItem('items', JSON.stringify(items));
             window.location.reload();
