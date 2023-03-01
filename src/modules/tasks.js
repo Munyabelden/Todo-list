@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
               item.index = i;
             });
             localStorage.setItem('items', JSON.stringify(items));
+            window.location.reload();
         })
       });
     });
