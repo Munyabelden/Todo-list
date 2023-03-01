@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.todo-form').addEventListener('submit', (e) => {
       e.preventDefault();
       const inputValue = document.querySelector('#text-add').value;
-      const index = items.length;
+      const index = items.length + 1;
       if(inputValue === ''){
         return
       }
