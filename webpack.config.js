@@ -21,16 +21,16 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ]
-            },
+          {
+            test: /\.scss$/,
+            use: [
+              'style-loader',
+              'css-loader',
+              'sass-loader'
+            ]
+          }
         ]
-    },
+      },
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Belden to do list app',

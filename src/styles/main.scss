@@ -87,11 +87,24 @@ button {
     padding-inline: 5px;
     width: 400px;
 
+    &.changed {
+      background: lightgray;
+
+      .edit-input {
+        color: $buttons;
+        text-decoration: line-through;
+      }
+    }
+
     div {
       display: flex;
       border: none;
       flex-direction: row;
       gap: 10px;
+
+      #checkbox:checked {
+        background: rgb(77, 234, 82)
+      }
 
       .edit-input {
         border: none;

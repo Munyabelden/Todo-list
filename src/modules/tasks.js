@@ -1,3 +1,5 @@
+import { completed, removeCompleteTask } from './taskAction.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     
     const getItems = () => {
@@ -34,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const listItems = document.querySelector('.list-container');
   
       const listItem = document.createElement('li');
+
+      listItem.setAttribute('id', `${item.index}`);
+      listItem.setAttribute('data-complete', 'false')
   
       listItem.innerHTML = `
           <div>
@@ -41,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <input type="text" class="edit-input" id="${item.index}" name="task" value="${item.description}">
           </div>
           <button type="button" class="list-btn" ><i class="fa-solid fa-ellipsis-vertical"></i></button>
-          <button type="button" class="remove-btn" id="${item.index}"><i class="fa-solid fa-trash-can"></i></button>
+          <button type="button" class="remove-btn" id="${item.index}"><i class="fa-solid fa-trash-can"></i></button> 
         `;
   
         listItems.insertAdjacentElement('beforeend', listItem);
@@ -57,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('items', JSON.stringify(items));
           })
         })
+         const completedTask = listItem.getAttribute('complete');
+         if(completedTask === true) {
+           listItem.classList.add('changed')
+         }
   
     };
 
@@ -103,4 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
+     completed();
+     removeCompleteTask();
 });
+
+
+
