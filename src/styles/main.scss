@@ -83,14 +83,40 @@ button {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 0.5px solid  $primary;
+    border-bottom: 1px solid  $primary;
     padding-inline: 5px;
     width: 400px;
 
     div {
       display: flex;
+      border: none;
       flex-direction: row;
       gap: 10px;
+
+      #checkbox:checked {
+        background: rgb(77, 234, 82);
+      }
+
+      .edit-input {
+        border: none;
+        outline: transparent;
+        font-size: 18px;
+        padding-block: 15px;
+        background: transparent;
+      }
+    }
+
+    &.changed {
+      background: lightgray;
+
+      .edit-input {
+        color: $buttons;
+        text-decoration: line-through;
+      }
+    }
+
+    .remove-btn {
+      display: none;
     }
   }
 }

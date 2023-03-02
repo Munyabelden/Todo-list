@@ -5,8 +5,9 @@
   "description": "A to do list app",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve"
+    "build": "webpack --mode production",
+    "dev": "webpack serve",
+    "start": "webpack serve --open"
   },
   "repository": {
     "type": "git",
