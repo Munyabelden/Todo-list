@@ -87,15 +87,6 @@ button {
     padding-inline: 5px;
     width: 400px;
 
-    &.changed {
-      background: lightgray;
-
-      .edit-input {
-        color: $buttons;
-        text-decoration: line-through;
-      }
-    }
-
     div {
       display: flex;
       border: none;
@@ -103,7 +94,7 @@ button {
       gap: 10px;
 
       #checkbox:checked {
-        background: rgb(77, 234, 82)
+        background: rgb(77, 234, 82);
       }
 
       .edit-input {
@@ -113,7 +104,17 @@ button {
         padding-block: 15px;
         background: transparent;
       }
+    }      
+
+    &.changed {
+      background: lightgray;
+
+      .edit-input {
+        color: $buttons;
+        text-decoration: line-through;
+      }
     }
+
 
     .remove-btn {
       display: none;
