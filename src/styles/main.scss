@@ -104,6 +104,7 @@ button {
         padding-block: 15px;
         background: transparent;
       }
+
     }      
 
     &.changed {
@@ -114,7 +115,6 @@ button {
         text-decoration: line-through;
       }
     }
-
 
     .remove-btn {
       display: none;
