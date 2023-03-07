@@ -1,7 +1,3 @@
-import { completed, removeCompleteTask } from './taskAction.js';
-
-document.addEventListener('DOMContentLoaded', () => {
-    
     const getItems = () => {
         let items;
 
@@ -14,23 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return items;
     }
 
-      let items = getItems();
     
-      items.sort((a, b) => a.index - b.index);
-  
-      document.querySelector('.container').innerHTML = `
-        <div class="title">
-          <h1>Today's to Do</h1>
-          <button type="button" class="reload"><i class="fa-solid fa-arrows-rotate"></i></button>
-        </div>
-        <form class="todo-form">
-          <input type="text" name="text" id="text-add" placeholder="Add to your list...">
-          <button type="submit" id="submit-btn"><i class="fa-solid fa-right-to-bracket"></i></button>
-        </form>
-        <ul class="list-container">
-        </ul>
-        <button type="button" id="delete-btn">Clear all completed</button>
-      `;
   
     const addItem = (item) => {
       const listItems = document.querySelector('.list-container');
@@ -52,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         listItems.insertAdjacentElement('beforeend', listItem);
   
         const editInput = document.querySelectorAll('.edit-input');
+        let items = getItems();
         editInput.forEach((input) => {
           input.addEventListener('input', ()=>{
             const editId = parseInt(input.id, 10);
@@ -69,29 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
     };
 
-    items.forEach((item) => addItem(item));
-  
-    document.querySelector('.todo-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      const inputValue = document.querySelector('#text-add').value;
-      const index = items.length + 1;
-      if(inputValue === ''){
-        return
-      }
-
-      const item = {
-        complete: false,
-        description: inputValue,
-        index: index, 
-      }
-
-      addItem(item);
-      items.push(item);
-      localStorage.setItem('items',JSON.stringify(items));
-      location.reload();
-    });
-
-    document.querySelectorAll('.list-btn').forEach((button) => {
+const deleteItem = () => {
+       let items = getItems();
+        document.querySelectorAll('.list-btn').forEach((button) => {
       button.addEventListener('click', () => {
         const listItem = button.closest('li');
         listItem.style.background = 'bisque';
@@ -111,10 +72,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
       });
     });
+}
 
-     completed();
-     removeCompleteTask();
-});
-
-
-
+export { addItem, deleteItem, getItems }
