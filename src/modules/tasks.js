@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const editId = parseInt(input.id, 10);
             let item = JSON.parse(localStorage.getItem('items'));
             items = item;
-            items[editId].description = document.getElementById(editId).value;
+            item[editId].description = document.getElementById(editId).value;
             item = items;
             localStorage.setItem('items', JSON.stringify(items));
           })
